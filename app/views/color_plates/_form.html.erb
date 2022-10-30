@@ -1,0 +1,27 @@
+<%= form_with(model: @color_plate , data: { controller: "color-picker" } ) do |f| %>
+   <div>
+    <%= f.label :color_name %>
+    <%= f.text_field :color_name %>
+  </div>  
+  
+  <div>
+    <%= f.label :color_code %>
+    <%= f.text_field :color_code,  data: {
+      color_picker_target: "input"
+    } %>
+    <%= color_field_tag(:div, "", class:"picker", data: {
+    color_picker_target: "picker"
+    }) %>
+  </div>
+
+  <div>
+    <%= f.label :color_pik %>
+    <%= f.text_field :color_pik,  data: {
+      color_picker_target: "input"
+    } %>
+  </div>
+
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

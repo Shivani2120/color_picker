@@ -1,0 +1,19 @@
+<h1> This is a color <h1>
+
+<table>
+   <thead>
+      <th>Name<th>
+   <thead>
+   <tbody>
+      <% @colors.each do |color| %>
+      <tr>
+       <td><%= color.name %></td>
+       <td><%= link_to "show", color_path(color) %></td>
+       <td><%= link_to "edit", edit_color_path(color) %></td>
+       <td><%= button_to "destroy", color, method: :delete %>
+       </tr>
+       <% end %>
+    </tbody>   
+       <br/>
+</table>
+       <%= link_to "add color", new_color_path %>
