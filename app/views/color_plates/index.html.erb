@@ -1,24 +1,16 @@
+<main class="container">
+<div class="header">
+  <h1>Color</h1>
+  <%= link_to "New color",
+            new_color_plate_path,
+            class: "btn btn--primary", 
+            data: { turbo_frame: dom_id(ColorPlate.new) } %>
+</div>
+<%= turbo_frame_tag ColorPlate.new %>
 
-<h2>Color list</h2>
-
-<table>
-   <thead>
-      <th>Name<th>
-   <thead>
-   <tbody>
-      <% @color_plates.each do |color| %>
-      <tr>
-       <td><%= color.color_name %></td>
-       <td><%= color.color_code  %></td>
-       <td><%= color.color_pik %></td>
-       <td><%= link_to "show", color_plate_path(color) %></td>
-       <td><%= link_to "edit", edit_color_plate_path(color) %></td>
-       <td><%= button_to "destroy", color, method: :delete %>
-       </tr>
-       <% end %>
-    </tbody>   
-       <br/>
-</table>
+<%= turbo_frame_tag "color_plates" do %>
+  <%= render @color_plates %>
+<% end %>  
+</main>
 
 
-<%= link_to "new color", new_color_plate_path %>

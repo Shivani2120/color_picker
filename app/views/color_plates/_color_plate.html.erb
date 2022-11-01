@@ -1,0 +1,16 @@
+<%= turbo_frame_tag color_plate do %>
+    <div class="color_plate">
+      <%= link_to color_plate.color_name, 
+                  color_plate_path(quote),
+                  data: { turbo_frame: "_top"} %>
+      <div class="color_plate__actions">
+        <%= button_to "Delete",
+                      color_plate_path(color_plate),
+                      method: :delete,
+                      class: "btn btn--light" %>
+        <%= link_to "Edit",
+                    edit_color_plate_path(color_plate),
+                    class: "btn btn--light" %>
+      </div>
+    </div>
+<% end %>
